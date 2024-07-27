@@ -1,7 +1,7 @@
 version: 0.2
 phases:
   install:
-    run-times:
+    runtime-versions:
       nodejs: 18
     commands:
       - echo "Pre Build Stage"
