@@ -1,0 +1,20 @@
+version: 0.0
+os: linux
+files:
+  # source is getting from codeBuild artificats(output)
+  - source: dist
+    destination: /var/www/react
+# Apply all permissions to /var/www/react directory and file
+permissions:
+  - object: /var/www/react
+    pattern: "**"
+    mode: "0755"
+    owner: root
+    group: root
+    type:
+      - file
+      - directory
+hooks:
+  ApplicationStart:
+    - location: deploy-scripts/application-start-hook.sh
+      timeout: 300 # seconds
